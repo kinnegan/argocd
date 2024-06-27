@@ -3,7 +3,6 @@ All of this based on official instalation instructions
 
 kreate namespace: 
   kubectl create namespace argocd
-
 add cerificats
 kubectl -n argocd create secret tls kube-ca-secret \
 --cert=/etc/kubernetes/pki/ca.crt \
