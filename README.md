@@ -16,9 +16,11 @@ installing cermanager
 https://cert-manager.io/docs/installation/
 
 installing ArgoCD
+
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
 We need to change server.insecure: "true" so 
+
 kubectl -n argocd apply -f configmap.yaml
 
 Exposing with Ingress Controller
