@@ -1,4 +1,3 @@
----
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -7,20 +6,20 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   rules:
   - http:
       paths:
-      - path: /
-        pathType: Prefix
+      - pathType: Prefix
+        path: /
         backend:
           service:
             name: argocd-server
-            port:
-              name: http
-    host: argocd.home.lan
+            port: 
+              name: https
+    host: argocd.example.com
   tls:
   - hosts:
-    - argocd.home.lan
-    secretName: argocd-secret # do not change, this is provided by Argo CD
+    - argocd.example.com
+    secretName: argocd-secret
